@@ -27,5 +27,15 @@
         border-radius: 10px;
 
         color: #ffffff;
+
+        transition: .2s;
+    }
+
+    button:hover {
+        background: #13AFF1;
+    }
+
+    button:active {
+        background: #31A9DD;
     }
 </style>
