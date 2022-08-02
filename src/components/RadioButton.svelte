@@ -42,7 +42,7 @@
         position: absolute;
         transform: translateY(-50%);
         top: 50%;
-        transition: .2s;
+        transition: 0.2s;
     }
 
     label::before {

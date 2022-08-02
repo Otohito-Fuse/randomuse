@@ -11,6 +11,7 @@ import type {
     RhythmOutput,
     NoteLength,
 } from './outputclasses';
+import { binarySearch } from './utils';
 
 export function generateRhythm(input: RhythmInput): RhythmOutput {
     let list: Array<NoteLength> = new Array();
@@ -301,33 +302,4 @@ function randomFromMap<T>(m: Map<T, number>): T | undefined {
     let sum: number = list[len - 1][1];
     let n: number = (1 - Math.random()) * sum;
     return binarySearch<T>(list, n);
-}
-
-export function binarySearch<T>(
-    list: Array<[T, number]>,
-    n: number,
-): T | undefined {
-    if (list.length == 0) {
-        return undefined;
-    }
-    if (list.length == 1) {
-        return list[0][0];
-    }
-    let l: number = 0;
-    let r: number = list.length - 1;
-    if (n <= list[l][1]) {
-        return list[l][0];
-    }
-    if (n > list[r - 1][1]) {
-        return list[r][0];
-    }
-    while (r - l >= 2) {
-        let d: number = Math.floor((l + r) / 2);
-        if (n <= list[d][1]) {
-            r = d;
-        } else {
-            l = d;
-        }
-    }
-    return list[r][0];
 }

@@ -28,14 +28,14 @@
 
         color: #ffffff;
 
-        transition: .2s;
+        transition: 0.2s;
     }
 
     button:hover {
-        background: #13AFF1;
+        background: #13aff1;
     }
 
     button:active {
-        background: #31A9DD;
+        background: #31a9dd;
     }
 </style>
