@@ -8,40 +8,40 @@
 
 <style>
     input[type='range'] {
-        -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
+        -webkit-appearance: none;
         appearance: none;
-        cursor: pointer; /* カーソルを分かりやすく */
-        outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
-        height: 10px; /* バーの高さ */
-        width: 100%; /* バーの幅 */
-        background: #95d5f0; /* バーの背景色 */
-        border-radius: 10px; /* バーの両端の丸み */
-        border: solid 3px #d7e9f1; /* バー周囲の線 */
+        cursor: pointer;
+        outline: none;
+        height: 10px;
+        width: 100%;
+        background: #95d5f0;
+        border-radius: 10px;
+        border: solid 3px #d7e9f1;
     }
-    /* WebKit向けのつまみ */
+
     input[type='range']::-webkit-slider-thumb {
-        -webkit-appearance: none; /*  🚩デフォルトのつまみのスタイルを解除 */
-        background: #54c2f1; /* 背景色 */
-        width: 19px; /* 幅 */
-        height: 19px; /* 高さ */
-        border-radius: 50%; /* 円形に */
-        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15); /* 影 */
-        border: none; /* デフォルトの線を消す */
+        -webkit-appearance: none;
+        background: #54c2f1;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+        border: none;
     }
-    /* Moz向けのつまみ */
+
     input[type='range']::-moz-range-thumb {
-        background: #54c2f1; /* 背景色 */
-        width: 19px; /* 幅 */
-        height: 19px; /* 高さ */
-        border-radius: 50%; /* 円形に */
-        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15); /* 影 */
-        border: none; /* デフォルトの線を消す */
+        background: #54c2f1;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+        border: none;
     }
-    /* Firefoxで点線が周りに表示されてしまう問題の解消 */
+
     input[type='range']::-moz-focus-outer {
         border: 0;
     }
-    /* つまみをドラッグしているときのスタイル */
+
     input[type='range']:active::-webkit-slider-thumb {
         box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.2);
     }
