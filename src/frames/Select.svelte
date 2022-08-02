@@ -8,7 +8,7 @@
     <div class="h2-wrapper">
         <h2>Generate</h2>
     </div>
-    <div class="button-wrapper">
+    <div class="radio-wrapper">
         <RadioButton
             bind:selected
             name="kind"
@@ -47,7 +47,7 @@
         padding-bottom: 15px;
     }
 
-    .button-wrapper {
+    .radio-wrapper {
         width: 100%;
         justify-content: center;
         display: flex;
@@ -55,6 +55,6 @@
         gap: 20px;
         padding-left: 20px;
         padding-right: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
 </style>

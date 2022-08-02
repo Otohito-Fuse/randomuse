@@ -33,10 +33,10 @@
         padding-left: 14px;
     }
     .div2 {
-        width: 55%;
+        width: 50%;
     }
     .div3 {
-        width: 20%;
+        width: 25%;
         text-align: right;
         padding-right: 14px;
     }
