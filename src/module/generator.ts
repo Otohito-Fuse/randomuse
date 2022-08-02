@@ -9,17 +9,169 @@ import type {
     ChordOutput,
     MelodyOutput,
     RhythmOutput,
+    NoteLength,
 } from './outputclasses';
 
-export function generateNoteHeight(input: MelodyInput): number {
+export function generateRhythm(input: RhythmInput): RhythmOutput {
+    let list: Array<NoteLength> = new Array();
+    for (let i: number = 0; i < input.numOfNotes; i++) {
+        list.push(generateNoteLength(input));
+    }
+    let output: RhythmOutput = {
+        rhythm: list,
+    };
+    return output;
+}
+
+function generateNoteLength(input: RhythmInput): NoteLength {
+    let len: number = input.allowedLengths.length;
+    let m: Map<number, number> = new Map();
+    for (let i: number = 0; i < len; i++) {
+        m.set(i + 1, input.allowedLengths[i]);
+    }
+    let output: NoteLength = {
+        denom: input.unitLength,
+        numer: randomFromMap(m),
+    };
+    return output;
+}
+
+export function generateMelody(input: MelodyInput): MelodyOutput {
+    let list: Array<number> = new Array();
+    for (let i: number = 0; i < input.numOfNotes; i++) {
+        list.push(generateNoteHeight(input));
+    }
+    let output: MelodyOutput = {
+        noteHeights: list,
+    };
+    return output;
+}
+
+function generateNoteHeight(input: MelodyInput): number {
     let noteSet: NoteSet = input.noteSet;
     let bottom: number = input.bottom;
     let top: number = input.top;
     let m: Map<number, number> = new Map();
     if (noteSet.pC > 0) {
-        
+        let noteList: Array<number> = getNoteList(0, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pC / len);
+            }
+        }
+    }
+    if (noteSet.pCis > 0) {
+        let noteList: Array<number> = getNoteList(1, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pCis / len);
+            }
+        }
+    }
+    if (noteSet.pD > 0) {
+        let noteList: Array<number> = getNoteList(2, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pD / len);
+            }
+        }
+    }
+    if (noteSet.pEs > 0) {
+        let noteList: Array<number> = getNoteList(3, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pEs / len);
+            }
+        }
+    }
+    if (noteSet.pE > 0) {
+        let noteList: Array<number> = getNoteList(4, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pE / len);
+            }
+        }
+    }
+    if (noteSet.pF > 0) {
+        let noteList: Array<number> = getNoteList(5, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pF / len);
+            }
+        }
+    }
+    if (noteSet.pFis > 0) {
+        let noteList: Array<number> = getNoteList(6, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pFis / len);
+            }
+        }
+    }
+    if (noteSet.pG > 0) {
+        let noteList: Array<number> = getNoteList(7, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pG / len);
+            }
+        }
+    }
+    if (noteSet.pGis > 0) {
+        let noteList: Array<number> = getNoteList(8, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pGis / len);
+            }
+        }
+    }
+    if (noteSet.pA > 0) {
+        let noteList: Array<number> = getNoteList(9, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pA / len);
+            }
+        }
+    }
+    if (noteSet.pB > 0) {
+        let noteList: Array<number> = getNoteList(10, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pB / len);
+            }
+        }
+    }
+    if (noteSet.pH > 0) {
+        let noteList: Array<number> = getNoteList(11, bottom, top);
+        let len: number = noteList.length;
+        if (len > 0) {
+            for (let n of noteList) {
+                m.set(n, noteSet.pH / len);
+            }
+        }
     }
     return randomFromMap<number>(m);
+}
+
+export function getNoteList(
+    interval: number,
+    bottom: number,
+    top: number,
+): Array<number> {
+    return Array.from(Array(top + 1))
+        .map((_, i) => i)
+        .filter((e) => e >= bottom)
+        .filter((e) => e % 12 == interval);
 }
 
 export function generateChords(input: ChordInput): ChordOutput {
