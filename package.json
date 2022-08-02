@@ -7,13 +7,16 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "format": "prettier --write --plugin-search-dir=. './src/**/*.{svelte,ts}'"
+    "format": "prettier --write --plugin-search-dir=. './src/**/*.{svelte,ts}'",
+    "test": "jest"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^2.0.0",
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
     "rollup": "^2.3.4",
@@ -24,8 +27,9 @@
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
+    "ts-jest": "^28.0.7",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.7.4"
   },
   "dependencies": {
     "sirv-cli": "^2.0.0"

@@ -54,13 +54,14 @@ label {
 	display: block;
 }
 
-input, button, select, textarea {
+input {
 	font-family: inherit;
 	font-size: inherit;
 	box-sizing: border-box;
 	background: #FFFFFF;
 	border: 1px solid #D7E9F1;
 	border-radius: 5px;
+	height: 33px;
 }
 
 input:disabled {
