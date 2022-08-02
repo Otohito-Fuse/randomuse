@@ -4,3 +4,4 @@
 </script>
 
 Melody
+<MelodyInputArea />

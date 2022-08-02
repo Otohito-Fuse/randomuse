@@ -1,7 +1,7 @@
 <script lang="ts">
     export let selected: string;
 
-    import RadioButton from './components/RadioButton.svelte';
+    import RadioButton from '../components/RadioButton.svelte';
 </script>
 
 <div class="main-area">

@@ -1,9 +1,9 @@
 <script lang="ts">
     import Header from './Header.svelte';
-    import Select from './Select.svelte';
-    import ChordArea from './ChordArea.svelte';
-    import MelodyArea from './MelodyArea.svelte';
-    import RhythmArea from './RhythmArea.svelte';
+    import Select from './frames/Select.svelte';
+    import ChordArea from './frames/ChordArea.svelte';
+    import MelodyArea from './frames/MelodyArea.svelte';
+    import RhythmArea from './frames/RhythmArea.svelte';
 
     let selected: string = 'chords';
 </script>

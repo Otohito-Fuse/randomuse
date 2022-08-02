@@ -25,6 +25,13 @@ h2 {
 	line-height: 29px;
 }
 
+h3 {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+}
+
 a {
 	font-style: normal;
 	font-weight: 400;
