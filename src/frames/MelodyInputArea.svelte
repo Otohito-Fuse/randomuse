@@ -1,24 +1,8 @@
 <script lang="ts">
-    // export let numOfNotes: number;
-    // export let bottom: number;
-    // export let top: number;
+    import { MelodyInput } from '../module/inputclasses';
 
-    let value: number = 50;
-    let min: number = 0;
-    let max: number = 100;
-
-    $: label2 = value.toString();
-
-    import RangeArea from './RangeArea.svelte';
+    export let melodyInput: MelodyInput = new MelodyInput();
 </script>
 
-<div>
-    <RangeArea bind:value {min} {max} label1="C" {label2} />
-</div>
-
 <style>
-    div {
-        max-width: 340px;
-        margin: 0 auto;
-    }
 </style>

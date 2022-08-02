@@ -12,7 +12,6 @@
 
     function generate() {
         chordOutput = generateChords(chordInput);
-        console.log('generate');
     }
 </script>
 

@@ -26,6 +26,7 @@
         height: 19px; /* 高さ */
         border-radius: 50%; /* 円形に */
         box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15); /* 影 */
+        border: none; /* デフォルトの線を消す */
     }
     /* Moz向けのつまみ */
     input[type='range']::-moz-range-thumb {
