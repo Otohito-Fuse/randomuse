@@ -11,6 +11,17 @@ import type {
     RhythmOutput,
 } from './outputclasses';
 
+export function generateNoteHeight(input: MelodyInput): number {
+    let noteSet: NoteSet = input.noteSet;
+    let bottom: number = input.bottom;
+    let top: number = input.top;
+    let m: Map<number, number> = new Map();
+    if (noteSet.pC > 0) {
+        
+    }
+    return randomFromMap<number>(m);
+}
+
 export function generateChords(input: ChordInput): ChordOutput {
     let list: Array<Chord> = new Array();
     for (let i: number = 0; i < input.numOfChords; i++) {
@@ -85,7 +96,7 @@ function generateSuffix(input: ChordInput): string | undefined {
     if (input.pLoc > 0) {
         m.set('Loc', (m.get('Loc') ?? 0) + input.pLoc);
     }
-    return randomFromMap(m);
+    return randomFromMap<string>(m);
 }
 
 function generateNote(input: NoteSet): string | undefined {
@@ -126,24 +137,24 @@ function generateNote(input: NoteSet): string | undefined {
     if (input.pH > 0) {
         m.set('H', input.pH);
     }
-    return randomFromMap(m);
+    return randomFromMap<string>(m);
 }
 
-function randomFromMap(m: Map<string, number>): string | undefined {
-    let list: Array<[string, number]> = Array.from(m.entries());
+function randomFromMap<T>(m: Map<T, number>): T | undefined {
+    let list: Array<[T, number]> = Array.from(m.entries());
     let len: number = list.length;
     for (let i: number = 1; i < len; i++) {
         list[i][1] += list[i - 1][1];
     }
     let sum: number = list[len - 1][1];
     let n: number = (1 - Math.random()) * sum;
-    return binarySearch(list, n);
+    return binarySearch<T>(list, n);
 }
 
-export function binarySearch(
-    list: Array<[string, number]>,
+export function binarySearch<T>(
+    list: Array<[T, number]>,
     n: number,
-): string | undefined {
+): T | undefined {
     if (list.length == 0) {
         return undefined;
     }
