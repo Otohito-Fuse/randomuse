@@ -6,7 +6,7 @@
     footer {
         text-align: center;
         margin-top: 15px;
-        padding: 15px 0;
+        padding: 12px 0 18px 0;
         box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.2);
     }
 
