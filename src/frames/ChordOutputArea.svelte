@@ -3,3 +3,5 @@
 
     export let chordOutput: ChordOutput = new ChordOutput();
 </script>
+
+{JSON.stringify(chordOutput)}

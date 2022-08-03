@@ -16,6 +16,11 @@ h1 {
 	font-weight: 500;
 	font-size: 40px;
 	line-height: 49px;
+
+	user-select: none; /* CSS3 */
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari、Chromeなど */
+	-ms-user-select: none; /* IE10から */
 }
 
 h2 {
@@ -23,6 +28,11 @@ h2 {
 	font-weight: 500;
 	font-size: 24px;
 	line-height: 29px;
+
+	user-select: none; /* CSS3 */
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari、Chromeなど */
+	-ms-user-select: none; /* IE10から */
 }
 
 h3 {
@@ -30,6 +40,11 @@ h3 {
 	font-weight: 500;
 	font-size: 20px;
 	line-height: 24px;
+
+	user-select: none; /* CSS3 */
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari、Chromeなど */
+	-ms-user-select: none; /* IE10から */
 }
 
 a {

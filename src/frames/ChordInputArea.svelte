@@ -416,7 +416,7 @@
         display: block;
         padding-top: 6px;
         padding-left: 25px;
-        padding-bottom: 6px;
+        padding-bottom: 10px;
     }
 
     .range-wrapper {

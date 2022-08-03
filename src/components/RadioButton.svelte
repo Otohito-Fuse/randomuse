@@ -32,6 +32,11 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
+
+        user-select: none; /* CSS3 */
+        -moz-user-select: none; /* Firefox */
+        -webkit-user-select: none; /* Safari、Chromeなど */
+        -ms-user-select: none; /* IE10から */
     }
 
     label::before,

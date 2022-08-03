@@ -1,5 +1,6 @@
 <script lang="ts">
     import Header from './Header.svelte';
+    import Footer from './Footer.svelte';
     import Select from './frames/Select.svelte';
     import ChordArea from './frames/ChordArea.svelte';
     import MelodyArea from './frames/MelodyArea.svelte';
@@ -19,6 +20,7 @@
         <RhythmArea />
     {/if}
 </div>
+<Footer />
 
 <style>
     .main-area {

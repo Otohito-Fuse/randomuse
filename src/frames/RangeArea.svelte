@@ -28,16 +28,26 @@
         padding-top: 11px;
         padding-bottom: 11px;
     }
+
     .div1 {
         width: 25%;
         padding-left: 14px;
     }
+
     .div2 {
         width: 50%;
     }
+
     .div3 {
         width: 25%;
         text-align: right;
         padding-right: 14px;
+    }
+
+    p {
+        user-select: none; /* CSS3 */
+        -moz-user-select: none; /* Firefox */
+        -webkit-user-select: none; /* Safari、Chromeなど */
+        -ms-user-select: none; /* IE10から */
     }
 </style>

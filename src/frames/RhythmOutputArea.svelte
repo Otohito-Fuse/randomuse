@@ -3,3 +3,5 @@
 
     export let rhythmOutput: RhythmOutput = new RhythmOutput();
 </script>
+
+{JSON.stringify(rhythmOutput)}

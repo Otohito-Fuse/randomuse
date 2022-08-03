@@ -1,5 +1,5 @@
 export class MelodyOutput {
-    noteHeights: Array<number>;
+    noteHeights: Array<number> = new Array();
 }
 
 export class Chord {
@@ -8,7 +8,7 @@ export class Chord {
 }
 
 export class ChordOutput {
-    chords: Array<Chord>;
+    chords: Array<Chord> = new Array();
 }
 
 export class NoteLength {
@@ -17,5 +17,5 @@ export class NoteLength {
 }
 
 export class RhythmOutput {
-    rhythm: Array<NoteLength>;
+    rhythm: Array<NoteLength> = new Array();
 }
