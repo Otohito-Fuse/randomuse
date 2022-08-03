@@ -31,17 +31,17 @@
     let p03: number = 100;
     let p04: number = 100;
     let p05: number = 0;
-    let p06: number = 100;
+    let p06: number = 60;
     let p07: number = 0;
-    let p08: number = 100;
+    let p08: number = 80;
     let p09: number = 0;
     let p10: number = 0;
     let p11: number = 0;
-    let p12: number = 100;
+    let p12: number = 40;
     let p13: number = 0;
     let p14: number = 0;
     let p15: number = 0;
-    let p16: number = 100;
+    let p16: number = 20;
 
     $: pLengthSum =
         p01 +
