@@ -57,3 +57,33 @@ export function binarySearch<T>(
     }
     return list[r][0];
 }
+
+export const noteSymbolEnToDe: Map<string, string> = new Map<string, string>([
+    ['C', 'C'],
+    ['C#', 'Cis'],
+    ['D', 'D'],
+    ['Eb', 'Es'],
+    ['E', 'E'],
+    ['F', 'F'],
+    ['F#', 'Fis'],
+    ['G', 'G'],
+    ['G#', 'Gis'],
+    ['A', 'A'],
+    ['Bb', 'B'],
+    ['B', 'H'],
+]);
+
+export const noteSymbolDeToEn: Map<string, string> = new Map<string, string>([
+    ['C', 'C'],
+    ['Cis', 'C#'],
+    ['D', 'D'],
+    ['Es', 'Eb'],
+    ['E', 'E'],
+    ['F', 'F'],
+    ['Fis', 'F#'],
+    ['G', 'G'],
+    ['Gis', 'G#'],
+    ['A', 'A'],
+    ['B', 'Bb'],
+    ['H', 'B'],
+]);

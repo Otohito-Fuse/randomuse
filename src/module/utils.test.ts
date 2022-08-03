@@ -1,4 +1,9 @@
-import { binarySearch, noteHeightToPitchName } from './utils';
+import {
+    binarySearch,
+    noteHeightToPitchName,
+    noteSymbolEnToDe,
+    noteSymbolDeToEn,
+} from './utils';
 
 test('binarySearch1', () => {
     let list: Array<[string, number]> = [
@@ -74,4 +79,20 @@ test('noteHeightToPitchName3', () => {
 
 test('noteHeightToPitchName4', () => {
     expect(noteHeightToPitchName(0)).toBe('C-1');
+});
+
+test('noteSymbolEnToDe1', () => {
+    expect(noteSymbolEnToDe.get('F#')).toBe('Fis');
+});
+
+test('noteSymbolEnToDe2', () => {
+    expect(noteSymbolEnToDe.get('Bb')).toBe('B');
+});
+
+test('noteSymbolDeToEn1', () => {
+    expect(noteSymbolDeToEn.get('Es')).toBe('Eb');
+});
+
+test('noteSymbolDeToEn2', () => {
+    expect(noteSymbolDeToEn.get('H')).toBe('B');
 });
