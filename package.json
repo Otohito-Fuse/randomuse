@@ -1,6 +1,7 @@
 {
-  "name": "svelte-app",
+  "name": "randomuse",
   "version": "1.0.0",
+  "author": "Otohito Fuse",
   "private": true,
   "scripts": {
     "build": "rollup -c",
