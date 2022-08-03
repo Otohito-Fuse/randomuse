@@ -8,7 +8,7 @@ body {
 	color: #0F0F0F;
 	background-color: #F5F5F5;
 	box-sizing: border-box;
-	font-family: "Helvetica Neue", 游ゴシック体, YuGothic, 游ゴシック, 'Yu Gothic', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo;
+	font-family: "Helvetica Neue", 游ゴシック体, YuGothic, 游ゴシック, 'Yu Gothic', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo, sans-serif;
 }
 
 h1 {
