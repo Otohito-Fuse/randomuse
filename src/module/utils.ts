@@ -1,3 +1,5 @@
+import type { MelodyOutput } from './outputclasses';
+
 export function noteHeightToPitchName(noteHeight: number): string {
     let noteSymbol: string = '';
     if (noteHeight % 12 == 0) {
@@ -87,3 +89,112 @@ export const noteSymbolDeToEn: Map<string, string> = new Map<string, string>([
     ['B', 'Bb'],
     ['H', 'B'],
 ]);
+
+export class NoteWithAccidental {
+    height: number;
+    accidental: string;
+
+    constructor(height: number, accidental: string) {
+        this.height = height;
+        this.accidental = accidental;
+    }
+}
+
+export function noteHeightTransformation(
+    melodyOutput: MelodyOutput,
+): Array<NoteWithAccidental> {
+    let map: Map<number, number> = new Map();
+    let array: Array<NoteWithAccidental> = new Array();
+    for (let noteHeight of melodyOutput.noteHeights) {
+        let n: number = 7 * Math.floor(noteHeight / 12);
+        switch (noteHeight % 12) {
+            case 0:
+                if (map.has(n) && map.get(n) != 0) {
+                    array.push(new NoteWithAccidental(n, 'natural'));
+                } else {
+                    array.push(new NoteWithAccidental(n, 'none'));
+                }
+                map.set(n, 0);
+                break;
+            case 1:
+                array.push(new NoteWithAccidental(n, 'sharp'));
+                map.set(n, 1);
+                break;
+            case 2:
+                n += 1;
+                if (map.has(n) && map.get(n) != 0) {
+                    array.push(new NoteWithAccidental(n, 'natural'));
+                } else {
+                    array.push(new NoteWithAccidental(n, 'none'));
+                }
+                map.set(n, 0);
+                break;
+            case 3:
+                n += 2;
+                array.push(new NoteWithAccidental(n, 'flat'));
+                map.set(n, -1);
+                break;
+            case 4:
+                n += 2;
+                if (map.has(n) && map.get(n) != 0) {
+                    array.push(new NoteWithAccidental(n, 'natural'));
+                } else {
+                    array.push(new NoteWithAccidental(n, 'none'));
+                }
+                map.set(n, 0);
+                break;
+            case 5:
+                n += 3;
+                if (map.has(n) && map.get(n) != 0) {
+                    array.push(new NoteWithAccidental(n, 'natural'));
+                } else {
+                    array.push(new NoteWithAccidental(n, 'none'));
+                }
+                map.set(n, 0);
+                break;
+            case 6:
+                n += 3;
+                array.push(new NoteWithAccidental(n, 'sharp'));
+                map.set(n, 1);
+                break;
+            case 7:
+                n += 4;
+                if (map.has(n) && map.get(n) != 0) {
+                    array.push(new NoteWithAccidental(n, 'natural'));
+                } else {
+                    array.push(new NoteWithAccidental(n, 'none'));
+                }
+                map.set(n, 0);
+                break;
+            case 8:
+                n += 4;
+                array.push(new NoteWithAccidental(n, 'sharp'));
+                map.set(n, 1);
+                break;
+            case 9:
+                n += 5;
+                if (map.has(n) && map.get(n) != 0) {
+                    array.push(new NoteWithAccidental(n, 'natural'));
+                } else {
+                    array.push(new NoteWithAccidental(n, 'none'));
+                }
+                map.set(n, 0);
+                break;
+            case 10:
+                n += 6;
+                array.push(new NoteWithAccidental(n, 'flat'));
+                map.set(n, -1);
+                break;
+            default:
+                n += 6;
+                if (map.has(n) && map.get(n) != 0) {
+                    array.push(new NoteWithAccidental(n, 'natural'));
+                } else {
+                    array.push(new NoteWithAccidental(n, 'none'));
+                }
+                map.set(n, 0);
+                break;
+        }
+    }
+    return array;
+}

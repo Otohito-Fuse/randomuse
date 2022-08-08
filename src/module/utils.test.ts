@@ -1,8 +1,11 @@
+import { MelodyOutput } from './outputclasses';
 import {
     binarySearch,
     noteHeightToPitchName,
     noteSymbolEnToDe,
     noteSymbolDeToEn,
+    noteHeightTransformation,
+    NoteWithAccidental,
 } from './utils';
 
 test('binarySearch1', () => {
@@ -95,4 +98,50 @@ test('noteSymbolDeToEn1', () => {
 
 test('noteSymbolDeToEn2', () => {
     expect(noteSymbolDeToEn.get('H')).toBe('B');
+});
+
+test('noteHeightTransformation1', () => {
+    let melodyOutput: MelodyOutput = new MelodyOutput();
+    melodyOutput.noteHeights = [
+        60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,
+    ];
+    let array: Array<NoteWithAccidental> = [
+        new NoteWithAccidental(35, 'none'),
+        new NoteWithAccidental(35, 'sharp'),
+        new NoteWithAccidental(36, 'none'),
+        new NoteWithAccidental(37, 'flat'),
+        new NoteWithAccidental(37, 'natural'),
+        new NoteWithAccidental(38, 'none'),
+        new NoteWithAccidental(38, 'sharp'),
+        new NoteWithAccidental(39, 'none'),
+        new NoteWithAccidental(39, 'sharp'),
+        new NoteWithAccidental(40, 'none'),
+        new NoteWithAccidental(41, 'flat'),
+        new NoteWithAccidental(41, 'natural'),
+        new NoteWithAccidental(42, 'none'),
+    ];
+    expect(noteHeightTransformation(melodyOutput)).toEqual(array);
+});
+
+test('noteHeightTransformation2', () => {
+    let melodyOutput: MelodyOutput = new MelodyOutput();
+    melodyOutput.noteHeights = [
+        72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60,
+    ];
+    let array: Array<NoteWithAccidental> = [
+        new NoteWithAccidental(42, 'none'),
+        new NoteWithAccidental(41, 'none'),
+        new NoteWithAccidental(41, 'flat'),
+        new NoteWithAccidental(40, 'none'),
+        new NoteWithAccidental(39, 'sharp'),
+        new NoteWithAccidental(39, 'natural'),
+        new NoteWithAccidental(38, 'sharp'),
+        new NoteWithAccidental(38, 'natural'),
+        new NoteWithAccidental(37, 'none'),
+        new NoteWithAccidental(37, 'flat'),
+        new NoteWithAccidental(36, 'none'),
+        new NoteWithAccidental(35, 'sharp'),
+        new NoteWithAccidental(35, 'natural'),
+    ];
+    expect(noteHeightTransformation(melodyOutput)).toEqual(array);
 });

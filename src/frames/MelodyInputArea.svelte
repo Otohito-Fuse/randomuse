@@ -6,7 +6,7 @@
 
     export let melodyInput: MelodyInput = new MelodyInput();
 
-    let numOfNotes: number = 32;
+    let numOfNotes: number = 16;
 
     $: melodyInput.numOfNotes = numOfNotes;
 
@@ -67,7 +67,7 @@
         <RangeArea
             bind:value={numOfNotes}
             min={1}
-            max={64}
+            max={32}
             label1=""
             label2={numOfNotes.toString()}
         />
@@ -78,8 +78,8 @@
     <div class="range-wrapper">
         <RangeArea
             bind:value={bottom}
-            min={21}
-            max={108}
+            min={48}
+            max={96}
             label1="bottom"
             label2={noteHeightToPitchName(bottom)}
         />
@@ -87,8 +87,8 @@
     <div class="range-wrapper">
         <RangeArea
             bind:value={top}
-            min={21}
-            max={108}
+            min={48}
+            max={96}
             label1="top"
             label2={noteHeightToPitchName(top)}
         />
