@@ -14,6 +14,11 @@ export class ChordOutput {
 export class NoteLength {
     denom: number;
     numer: number;
+
+    constructor(denom: number, numer: number) {
+        this.denom = denom;
+        this.numer = numer;
+    }
 }
 
 export class RhythmOutput {

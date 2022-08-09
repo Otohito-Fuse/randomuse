@@ -1,4 +1,5 @@
 import type { MelodyOutput } from './outputclasses';
+import type { RhythmOutput } from './outputclasses';
 
 export function noteHeightToPitchName(noteHeight: number): string {
     let noteSymbol: string = '';
@@ -197,4 +198,55 @@ export function noteHeightTransformation(
         }
     }
     return array;
+}
+
+export function rhythmTransformation(
+    rhythmOutput: RhythmOutput,
+): Array<boolean> {
+    let unit: number = getUnit(rhythmOutput);
+    let output: Array<boolean> = new Array();
+    for (let noteLength of rhythmOutput.rhythm) {
+        let n: number = noteLength.numer * (unit / noteLength.denom);
+        output.push(true);
+        for (let _ of Array(n - 1)) {
+            output.push(false);
+        }
+    }
+    return output;
+}
+
+export function getUnit(rhythmOutput: RhythmOutput): number {
+    let n: number = 1;
+    for (let noteLength of rhythmOutput.rhythm) {
+        n = lcm(n, noteLength.denom);
+    }
+    return n;
+}
+
+export function gcd(n: number, m: number): number {
+    if (n == 0 || m == 0) {
+        return 0;
+    }
+    let n0: number = n > 0 ? n : -n;
+    let m0: number = m > 0 ? m : -m;
+    if (n0 > m0) {
+        let l0: number = m0;
+        m0 = n0;
+        n0 = l0;
+    }
+    while (m0 % n0 != 0) {
+        let l0: number = m0 % n0;
+        m0 = n0;
+        n0 = l0;
+    }
+    return n0;
+}
+
+export function lcm(n: number, m: number): number {
+    if (n == 0 || m == 0) {
+        return 0;
+    }
+    let n0: number = n > 0 ? n : -n;
+    let m0: number = m > 0 ? m : -m;
+    return (n0 * m0) / gcd(n0, m0);
 }

@@ -1,4 +1,4 @@
-import { MelodyOutput } from './outputclasses';
+import { MelodyOutput, NoteLength, RhythmOutput } from './outputclasses';
 import {
     binarySearch,
     noteHeightToPitchName,
@@ -6,6 +6,10 @@ import {
     noteSymbolDeToEn,
     noteHeightTransformation,
     NoteWithAccidental,
+    gcd,
+    lcm,
+    getUnit,
+    rhythmTransformation,
 } from './utils';
 
 test('binarySearch1', () => {
@@ -144,4 +148,61 @@ test('noteHeightTransformation2', () => {
         new NoteWithAccidental(35, 'natural'),
     ];
     expect(noteHeightTransformation(melodyOutput)).toEqual(array);
+});
+
+test('gcd1', () => {
+    expect(gcd(0, 1)).toBe(0);
+});
+
+test('gcd2', () => {
+    expect(gcd(3, 4)).toBe(1);
+});
+
+test('gcd3', () => {
+    expect(gcd(-10, 10)).toBe(10);
+});
+
+test('gcd4', () => {
+    expect(gcd(49, 70)).toBe(7);
+});
+
+test('gcd5', () => {
+    expect(gcd(80, 70)).toBe(10);
+});
+
+test('lcm1', () => {
+    expect(lcm(0, 1)).toBe(0);
+});
+
+test('lcm2', () => {
+    expect(lcm(2, 3)).toBe(6);
+});
+
+test('lcm3', () => {
+    expect(lcm(8, 12)).toBe(24);
+});
+
+test('lcm4', () => {
+    expect(lcm(-9, 15)).toBe(45);
+});
+
+test('getUnit1', () => {
+    let rhythmOutput: RhythmOutput = new RhythmOutput();
+    let array: Array<NoteLength> = [
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+        new NoteLength(4, 3),
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+        new NoteLength(16, 3),
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+        new NoteLength(16, 3),
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+    ];
+    rhythmOutput.rhythm = array;
+    expect(getUnit(rhythmOutput)).toBe(16);
 });
