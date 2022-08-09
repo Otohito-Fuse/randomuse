@@ -202,21 +202,21 @@ export function noteHeightTransformation(
 
 export function rhythmTransformation(
     rhythmOutput: RhythmOutput,
-): Array<Array<boolean>> {
+): Array<Array<[boolean, number]>> {
     let unit: number = getUnit(rhythmOutput);
-    let array: Array<boolean> = new Array();
+    let array: Array<[boolean, number]> = new Array();
     for (let noteLength of rhythmOutput.rhythm) {
         let n: number = noteLength.numer * (unit / noteLength.denom);
-        array.push(true);
+        array.push([true, n]);
         for (let _ of Array(n - 1)) {
-            array.push(false);
+            array.push([false, 0]);
         }
     }
     let len: number = array.length;
-    let m: number = Math.floor((len + unit * 2 - 1) / (unit * 2));
-    let output: Array<Array<boolean>> = new Array();
+    let m: number = Math.floor((len + unit * 4 - 1) / (unit * 4));
+    let output: Array<Array<[boolean, number]>> = new Array();
     for (let i of [...Array(m).keys()]) {
-        output.push(array.slice(i * unit * 2, (i + 1) * unit * 2));
+        output.push(array.slice(i * unit * 4, (i + 1) * unit * 4));
     }
     return output;
 }

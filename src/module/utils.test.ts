@@ -217,26 +217,27 @@ test('rhythmTransformation1', () => {
         new NoteLength(8, 3),
     ];
     rhythmOutput.rhythm = array1;
-    let array2: Array<Array<boolean>> = [
+    let array2: Array<Array<[boolean, number]>> = [
         [
-            true,
-            false,
-            false,
-            true,
-            false,
-            false,
-            true,
-            false,
-            false,
-            false,
-            false,
-            false,
-            true,
-            false,
-            false,
-            true,
+            [true, 3],
+            [false, 0],
+            [false, 0],
+            [true, 3],
+            [false, 0],
+            [false, 0],
+            [true, 6],
+            [false, 0],
+            [false, 0],
+            [false, 0],
+            [false, 0],
+            [false, 0],
+            [true, 3],
+            [false, 0],
+            [false, 0],
+            [true, 3],
+            [false, 0],
+            [false, 0],
         ],
-        [false, false],
     ];
     expect(rhythmTransformation(rhythmOutput)).toEqual(array2);
 });
