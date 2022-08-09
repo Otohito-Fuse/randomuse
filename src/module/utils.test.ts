@@ -206,3 +206,37 @@ test('getUnit1', () => {
     rhythmOutput.rhythm = array;
     expect(getUnit(rhythmOutput)).toBe(16);
 });
+
+test('rhythmTransformation1', () => {
+    let rhythmOutput: RhythmOutput = new RhythmOutput();
+    let array1: Array<NoteLength> = [
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+        new NoteLength(4, 3),
+        new NoteLength(8, 3),
+        new NoteLength(8, 3),
+    ];
+    rhythmOutput.rhythm = array1;
+    let array2: Array<Array<boolean>> = [
+        [
+            true,
+            false,
+            false,
+            true,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            true,
+        ],
+        [false, false],
+    ];
+    expect(rhythmTransformation(rhythmOutput)).toEqual(array2);
+});
