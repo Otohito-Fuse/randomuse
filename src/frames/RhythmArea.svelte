@@ -1,6 +1,7 @@
 <script lang="ts">
     import RhythmInputArea from './RhythmInputArea.svelte';
     import RhythmOutputArea from './RhythmOutputArea.svelte';
+    import RhythmOutputStore from './RhythmOutputStore.svelte';
     import Button from '../components/Button.svelte';
 
     import { generateRhythm } from '../module/generator';
@@ -20,6 +21,7 @@
     <Button on:clickButton={generate} label="generate" />
 </div>
 <RhythmOutputArea bind:rhythmOutput />
+<RhythmOutputStore bind:rhythmOutput />
 
 <style>
     .button-wrapper {

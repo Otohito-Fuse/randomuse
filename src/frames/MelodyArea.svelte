@@ -1,6 +1,7 @@
 <script lang="ts">
     import MelodyInputArea from './MelodyInputArea.svelte';
     import MelodyOutputArea from './MelodyOutputArea.svelte';
+    import MelodyOutputStore from './MelodyOutputStore.svelte';
     import Button from '../components/Button.svelte';
 
     import { generateMelody } from '../module/generator';
@@ -20,6 +21,7 @@
     <Button on:clickButton={generate} label="generate" />
 </div>
 <MelodyOutputArea bind:melodyOutput />
+<MelodyOutputStore bind:melodyOutput />
 
 <style>
     .button-wrapper {

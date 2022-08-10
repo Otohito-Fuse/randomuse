@@ -61,7 +61,7 @@
     }
 
     .big-number {
-        font-size: 0.4rem;
+        font-size: 0.5rem;
     }
 
     @media (max-width: 800px) {
@@ -70,7 +70,7 @@
         }
 
         .big-number {
-            font-size: 0.35rem;
+            font-size: 0.4rem;
         }
     }
 
@@ -80,7 +80,7 @@
         }
 
         .big-number {
-            font-size: 0.25rem;
+            font-size: 0.3rem;
         }
     }
 </style>

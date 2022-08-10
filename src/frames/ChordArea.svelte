@@ -1,6 +1,7 @@
 <script lang="ts">
     import ChordInputArea from './ChordInputArea.svelte';
     import ChordOutputArea from './ChordOutputArea.svelte';
+    import ChordOutputStore from './ChordOutputStore.svelte';
     import Button from '../components/Button.svelte';
 
     import { generateChords } from '../module/generator';
@@ -20,6 +21,7 @@
     <Button on:clickButton={generate} label="generate" />
 </div>
 <ChordOutputArea bind:chordOutput />
+<ChordOutputStore bind:chordOutput />
 
 <style>
     .button-wrapper {

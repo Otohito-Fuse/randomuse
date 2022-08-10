@@ -1,48 +1,41 @@
 <script lang="ts">
-    export let selected: string;
+    export let mode: string;
 
     import RadioButton from '../components/RadioButton.svelte';
 </script>
 
 <div class="main-area">
     <div class="h2-wrapper">
-        <h2>Generate</h2>
+        <h2>Mode Select</h2>
     </div>
     <div class="radio-wrapper">
         <RadioButton
-            bind:selected
-            name="kind"
-            value="chords"
-            label="Chords"
-            id="chords"
+            bind:selected={mode}
+            name="mode"
+            value="generate"
+            label="Generate"
+            id="generate"
         />
         <RadioButton
-            bind:selected
-            name="kind"
-            value="melody"
-            label="Melody"
-            id="melody"
-        />
-        <RadioButton
-            bind:selected
-            name="kind"
-            value="rhythm"
-            label="Rhythm"
-            id="rhythm"
+            bind:selected={mode}
+            name="mode"
+            value="browse"
+            label="Browse"
+            id="browse"
         />
     </div>
 </div>
 
 <style>
     .main-area {
-        max-width: 500px;
+        max-width: 800px;
         margin: 0 auto;
     }
 
     .h2-wrapper {
         width: 100%;
         display: block;
-        padding-top: 15px;
+        padding-top: 30px;
         padding-left: 20px;
         padding-bottom: 15px;
     }
@@ -55,6 +48,6 @@
         gap: 20px;
         padding-left: 20px;
         padding-right: 20px;
-        padding-bottom: 10px;
+        padding-bottom: 30px;
     }
 </style>

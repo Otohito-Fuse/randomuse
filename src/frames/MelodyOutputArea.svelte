@@ -12,7 +12,7 @@
     $: notesArray = noteHeightTransformation(melodyOutput);
 
     const xLength: number = 2000;
-    const yLength: number = 500;
+    const yLength: number = 400;
     const xLeftEnd: number = 100;
 </script>
 
@@ -24,12 +24,12 @@
 
 <style>
     .wrapper {
-        margin: 15px auto;
+        margin: 10px auto;
         width: 100%;
     }
 
     svg {
         width: 100%;
-        height: 25%;
+        height: 20%;
     }
 </style>

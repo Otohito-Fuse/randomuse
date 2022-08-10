@@ -72,7 +72,7 @@ p {
 	line-height: 19px;
 }
 
-input, button {
+input {
 	font-family: inherit;
 	font-size: inherit;
 	box-sizing: border-box;
@@ -86,7 +86,7 @@ input:disabled {
 	color: #ccc;
 }
 
-input:focus, button:focus {
+input:focus {
 	border: 1px solid #95D5F0;
 	border-radius: 5px;
 }
