@@ -14,6 +14,11 @@
     import MelodyOutputArea from './MelodyOutputArea.svelte';
     import RhythmOutputArea from './RhythmOutputArea.svelte';
     import TextToClick from '../components/TextToClick.svelte';
+    import {
+        transposeMelody,
+        reverseMelody,
+        invertMelody,
+    } from '../module/utils';
 
     let displayingChordOutput1: boolean = true;
     let displayingChordOutput2: boolean = true;
@@ -26,6 +31,54 @@
     let displayingRhythmOutput1: boolean = true;
     let displayingRhythmOutput2: boolean = true;
     let displayingRhythmOutput3: boolean = true;
+
+    function transposePlus1() {
+        melodyOutput1.set(transposeMelody($melodyOutput1, 1));
+    }
+
+    function transposeMinus1() {
+        melodyOutput1.set(transposeMelody($melodyOutput1, -1));
+    }
+
+    function reverse1() {
+        melodyOutput1.set(reverseMelody($melodyOutput1));
+    }
+
+    function invert1() {
+        melodyOutput1.set(invertMelody($melodyOutput1, 72));
+    }
+
+    function transposePlus2() {
+        melodyOutput2.set(transposeMelody($melodyOutput2, 1));
+    }
+
+    function transposeMinus2() {
+        melodyOutput2.set(transposeMelody($melodyOutput2, -1));
+    }
+
+    function reverse2() {
+        melodyOutput2.set(reverseMelody($melodyOutput2));
+    }
+
+    function invert2() {
+        melodyOutput2.set(invertMelody($melodyOutput2, 72));
+    }
+
+    function transposePlus3() {
+        melodyOutput3.set(transposeMelody($melodyOutput3, 1));
+    }
+
+    function transposeMinus3() {
+        melodyOutput3.set(transposeMelody($melodyOutput3, -1));
+    }
+
+    function reverse3() {
+        melodyOutput3.set(reverseMelody($melodyOutput3));
+    }
+
+    function invert3() {
+        melodyOutput3.set(invertMelody($melodyOutput3, 72));
+    }
 </script>
 
 <div class="main-area">
@@ -109,6 +162,10 @@
                 label="show"
             />
         {/if}
+        <TextToClick on:clickText={transposePlus1} label="+1" />
+        <TextToClick on:clickText={transposeMinus1} label="-1" />
+        <TextToClick on:clickText={reverse1} label="reverse" />
+        <TextToClick on:clickText={invert1} label="invert" />
     </div>
     {#if displayingMelodyOutput1}
         <MelodyOutputArea bind:melodyOutput={$melodyOutput1} />
@@ -130,6 +187,10 @@
                 label="show"
             />
         {/if}
+        <TextToClick on:clickText={transposePlus2} label="+1" />
+        <TextToClick on:clickText={transposeMinus2} label="-1" />
+        <TextToClick on:clickText={reverse2} label="reverse" />
+        <TextToClick on:clickText={invert2} label="invert" />
     </div>
     {#if displayingMelodyOutput2}
         <MelodyOutputArea bind:melodyOutput={$melodyOutput2} />
@@ -151,6 +212,10 @@
                 label="show"
             />
         {/if}
+        <TextToClick on:clickText={transposePlus3} label="+1" />
+        <TextToClick on:clickText={transposeMinus3} label="-1" />
+        <TextToClick on:clickText={reverse3} label="reverse" />
+        <TextToClick on:clickText={invert3} label="invert" />
     </div>
     {#if displayingMelodyOutput3}
         <MelodyOutputArea bind:melodyOutput={$melodyOutput3} />
