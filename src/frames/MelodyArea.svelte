@@ -21,12 +21,8 @@
         melodyOutput = generateMelody(melodyInput);
     }
 
-    function transposePlus() {
-        melodyOutput = transposeMelody(melodyOutput, 1);
-    }
-
-    function transposeMinus() {
-        melodyOutput = transposeMelody(melodyOutput, -1);
+    function transpose(n: number) {
+        melodyOutput = transposeMelody(melodyOutput, n);
     }
 
     function reverse() {
@@ -43,8 +39,18 @@
     <Button on:clickButton={generate} label="generate" />
 </div>
 <div class="clicktext-wrapper">
-    <TextToClick on:clickText={transposePlus} label="+1" />
-    <TextToClick on:clickText={transposeMinus} label="-1" />
+    <TextToClick
+        on:clickText={() => {
+            transpose(1);
+        }}
+        label="+1"
+    />
+    <TextToClick
+        on:clickText={() => {
+            transpose(-1);
+        }}
+        label="-1"
+    />
     <TextToClick on:clickText={reverse} label="reverse" />
     <TextToClick on:clickText={invert} label="invert" />
 </div>

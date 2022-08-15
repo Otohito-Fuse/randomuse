@@ -37,12 +37,8 @@
         melodyOutput3Exists.set(true);
     }
 
-    function transposePlus1() {
-        melodyOutput1.set(transposeMelody($melodyOutput1, 1));
-    }
-
-    function transposeMinus1() {
-        melodyOutput1.set(transposeMelody($melodyOutput1, -1));
+    function transpose1(n: number) {
+        melodyOutput1.set(transposeMelody($melodyOutput1, n));
     }
 
     function reverse1() {
@@ -53,12 +49,8 @@
         melodyOutput1.set(invertMelody($melodyOutput1, 72));
     }
 
-    function transposePlus2() {
-        melodyOutput2.set(transposeMelody($melodyOutput2, 1));
-    }
-
-    function transposeMinus2() {
-        melodyOutput2.set(transposeMelody($melodyOutput2, -1));
+    function transpose2(n: number) {
+        melodyOutput2.set(transposeMelody($melodyOutput2, n));
     }
 
     function reverse2() {
@@ -69,12 +61,8 @@
         melodyOutput2.set(invertMelody($melodyOutput2, 72));
     }
 
-    function transposePlus3() {
-        melodyOutput3.set(transposeMelody($melodyOutput3, 1));
-    }
-
-    function transposeMinus3() {
-        melodyOutput3.set(transposeMelody($melodyOutput3, -1));
+    function transpose3(n: number) {
+        melodyOutput3.set(transposeMelody($melodyOutput3, n));
     }
 
     function reverse3() {
@@ -109,8 +97,18 @@
                 label="show"
             />
         {/if}
-        <TextToClick on:clickText={transposePlus1} label="+1" />
-        <TextToClick on:clickText={transposeMinus1} label="-1" />
+        <TextToClick
+            on:clickText={() => {
+                transpose1(1);
+            }}
+            label="+1"
+        />
+        <TextToClick
+            on:clickText={() => {
+                transpose1(-1);
+            }}
+            label="-1"
+        />
         <TextToClick on:clickText={reverse1} label="reverse" />
         <TextToClick on:clickText={invert1} label="invert" />
     </div>
@@ -139,8 +137,18 @@
                 label="show"
             />
         {/if}
-        <TextToClick on:clickText={transposePlus2} label="+1" />
-        <TextToClick on:clickText={transposeMinus2} label="-1" />
+        <TextToClick
+            on:clickText={() => {
+                transpose2(1);
+            }}
+            label="+1"
+        />
+        <TextToClick
+            on:clickText={() => {
+                transpose2(-1);
+            }}
+            label="-1"
+        />
         <TextToClick on:clickText={reverse2} label="reverse" />
         <TextToClick on:clickText={invert2} label="invert" />
     </div>
@@ -169,8 +177,18 @@
                 label="show"
             />
         {/if}
-        <TextToClick on:clickText={transposePlus3} label="+1" />
-        <TextToClick on:clickText={transposeMinus3} label="-1" />
+        <TextToClick
+            on:clickText={() => {
+                transpose3(1);
+            }}
+            label="+1"
+        />
+        <TextToClick
+            on:clickText={() => {
+                transpose3(-1);
+            }}
+            label="-1"
+        />
         <TextToClick on:clickText={reverse3} label="reverse" />
         <TextToClick on:clickText={invert3} label="invert" />
     </div>
