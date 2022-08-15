@@ -10,6 +10,7 @@
     import type { ChordOutput } from '../module/outputclasses';
     import ChordOutputArea from './ChordOutputArea.svelte';
     import TextToClick from '../components/TextToClick.svelte';
+    import { transposeChords } from '../module/utils';
 
     export let chordOutput: ChordOutput;
 
@@ -30,6 +31,18 @@
     function storeChordOutput3() {
         chordOutput3.set(chordOutput);
         chordOutput3Exists.set(true);
+    }
+
+    function transpose1(n: number) {
+        chordOutput1.set(transposeChords($chordOutput1, n));
+    }
+
+    function transpose2(n: number) {
+        chordOutput2.set(transposeChords($chordOutput2, n));
+    }
+
+    function transpose3(n: number) {
+        chordOutput3.set(transposeChords($chordOutput3, n));
     }
 </script>
 
@@ -56,6 +69,18 @@
                 label="show"
             />
         {/if}
+        <TextToClick
+            on:clickText={() => {
+                transpose1(1);
+            }}
+            label="+1"
+        />
+        <TextToClick
+            on:clickText={() => {
+                transpose1(-1);
+            }}
+            label="-1"
+        />
     </div>
     {#if displayingChordOutput1}
         <ChordOutputArea bind:chordOutput={$chordOutput1} />
@@ -82,6 +107,18 @@
                 label="show"
             />
         {/if}
+        <TextToClick
+            on:clickText={() => {
+                transpose2(1);
+            }}
+            label="+1"
+        />
+        <TextToClick
+            on:clickText={() => {
+                transpose2(-1);
+            }}
+            label="-1"
+        />
     </div>
     {#if displayingChordOutput2}
         <ChordOutputArea bind:chordOutput={$chordOutput2} />
@@ -108,6 +145,18 @@
                 label="show"
             />
         {/if}
+        <TextToClick
+            on:clickText={() => {
+                transpose3(1);
+            }}
+            label="+1"
+        />
+        <TextToClick
+            on:clickText={() => {
+                transpose3(-1);
+            }}
+            label="-1"
+        />
     </div>
     {#if displayingChordOutput3}
         <ChordOutputArea bind:chordOutput={$chordOutput3} />

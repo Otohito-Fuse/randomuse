@@ -1,4 +1,4 @@
-import { MelodyOutput, NoteLength, RhythmOutput } from './outputclasses';
+import { MelodyOutput, NoteLength, RhythmOutput, Chord } from './outputclasses';
 import {
     binarySearch,
     noteHeightToPitchName,
@@ -13,6 +13,7 @@ import {
     transposeMelody,
     reverseMelody,
     invertMelody,
+    transposeChord,
 } from './utils';
 
 test('binarySearch1', () => {
@@ -291,4 +292,22 @@ test('invertMelody1', () => {
         60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,
     ];
     expect(invertMelody(melodyOutput1, 66)).toEqual(melodyOutput2);
+});
+
+test('transposeChord1', () => {
+    let chord0: Chord = new Chord('C', 'sus4');
+    let chord1: Chord = new Chord('Cis', 'sus4');
+    expect(transposeChord(chord0, 1)).toEqual(chord1);
+});
+
+test('transposeChord2', () => {
+    let chord0: Chord = new Chord('C', 'sus4');
+    let chord1: Chord = new Chord('H', 'sus4');
+    expect(transposeChord(chord0, -1)).toEqual(chord1);
+});
+
+test('transposeChord3', () => {
+    let chord0: Chord = new Chord('C', 'sus4');
+    let chord1: Chord = new Chord('Es', 'sus4');
+    expect(transposeChord(chord0, 3)).toEqual(chord1);
 });

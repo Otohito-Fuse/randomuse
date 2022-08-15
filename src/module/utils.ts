@@ -1,5 +1,5 @@
 import { MelodyOutput } from './outputclasses';
-import type { RhythmOutput } from './outputclasses';
+import { RhythmOutput, Chord, ChordOutput } from './outputclasses';
 
 export function noteHeightToPitchName(noteHeight: number): string {
     let noteSymbol: string = '';
@@ -283,4 +283,95 @@ export function invertMelody(
         (e) => axis - (e - axis),
     );
     return melodyOutput0;
+}
+
+export function transposeRootPlus(root: string): string {
+    switch (root) {
+        case 'C':
+            return 'Cis';
+        case 'Cis':
+            return 'D';
+        case 'D':
+            return 'Es';
+        case 'Es':
+            return 'E';
+        case 'E':
+            return 'F';
+        case 'F':
+            return 'Fis';
+        case 'Fis':
+            return 'G';
+        case 'G':
+            return 'Gis';
+        case 'Gis':
+            return 'A';
+        case 'A':
+            return 'B';
+        case 'B':
+            return 'H';
+        case 'H':
+            return 'C';
+        default:
+            return root;
+    }
+}
+
+export function transposeRootMinus(root: string): string {
+    switch (root) {
+        case 'C':
+            return 'H';
+        case 'Cis':
+            return 'C';
+        case 'D':
+            return 'Cis';
+        case 'Es':
+            return 'D';
+        case 'E':
+            return 'Es';
+        case 'F':
+            return 'E';
+        case 'Fis':
+            return 'F';
+        case 'G':
+            return 'Fis';
+        case 'Gis':
+            return 'G';
+        case 'A':
+            return 'Gis';
+        case 'B':
+            return 'A';
+        case 'H':
+            return 'B';
+        default:
+            return root;
+    }
+}
+
+export function transposeChord(chord: Chord, interval: number): Chord {
+    if (interval == 0) {
+        return chord;
+    } else if (interval > 0) {
+        let chord0: Chord = chord;
+        for (let i: number = 0; i < interval; i++) {
+            chord0 = new Chord(transposeRootPlus(chord0.root), chord0.suffix);
+        }
+        return chord0;
+    } else {
+        let chord0: Chord = chord;
+        for (let i: number = 0; i < 0 - interval; i++) {
+            chord0 = new Chord(transposeRootMinus(chord0.root), chord0.suffix);
+        }
+        return chord0;
+    }
+}
+
+export function transposeChords(
+    chordOutput: ChordOutput,
+    interval: number,
+): ChordOutput {
+    let chordOutput0 = new ChordOutput();
+    chordOutput0.chords = chordOutput.chords.map((e) =>
+        transposeChord(e, interval),
+    );
+    return chordOutput0;
 }

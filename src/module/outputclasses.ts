@@ -5,6 +5,11 @@ export class MelodyOutput {
 export class Chord {
     root: string;
     suffix: string;
+
+    constructor(root: string, suffix: string) {
+        this.root = root;
+        this.suffix = suffix;
+    }
 }
 
 export class ChordOutput {
