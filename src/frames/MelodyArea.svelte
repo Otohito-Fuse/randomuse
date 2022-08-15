@@ -43,7 +43,7 @@
         on:clickText={() => {
             transpose(1);
         }}
-        label="+1"
+        label="transpose +1"
     />
     <TextToClick
         on:clickText={() => {
@@ -71,6 +71,8 @@
         max-width: 700px;
         margin: 0 auto;
         display: flex;
+        flex-wrap: wrap;
         padding-top: 30px;
+        padding-left: 20px;
     }
 </style>

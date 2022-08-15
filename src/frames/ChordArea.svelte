@@ -57,6 +57,8 @@
         max-width: 700px;
         margin: 0 auto;
         display: flex;
+        flex-wrap: wrap;
         padding-top: 30px;
+        padding-left: 20px;
     }
 </style>

@@ -366,6 +366,7 @@
     .h2-wrapper {
         width: 100%;
         display: flex;
+        flex-wrap: wrap;
         padding-top: 10px;
         padding-left: 20px;
         padding-bottom: 0px;
