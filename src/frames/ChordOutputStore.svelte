@@ -37,9 +37,9 @@
     <div class="h2-wrapper">
         <h2>Chord Output 1</h2>
         {#if $chordOutput1Exists}
-            <TextToClick on:clickText={storeChordOutput1} label="Overwrite" />
+            <TextToClick on:clickText={storeChordOutput1} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeChordOutput1} label="Save" />
+            <TextToClick on:clickText={storeChordOutput1} label="save" />
         {/if}
         {#if displayingChordOutput1}
             <TextToClick
@@ -63,9 +63,9 @@
     <div class="h2-wrapper">
         <h2>Chord Output 2</h2>
         {#if $chordOutput2Exists}
-            <TextToClick on:clickText={storeChordOutput2} label="Overwrite" />
+            <TextToClick on:clickText={storeChordOutput2} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeChordOutput2} label="Save" />
+            <TextToClick on:clickText={storeChordOutput2} label="save" />
         {/if}
         {#if displayingChordOutput2}
             <TextToClick
@@ -89,9 +89,9 @@
     <div class="h2-wrapper">
         <h2>Chord Output 3</h2>
         {#if $chordOutput3Exists}
-            <TextToClick on:clickText={storeChordOutput3} label="Overwrite" />
+            <TextToClick on:clickText={storeChordOutput3} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeChordOutput3} label="Save" />
+            <TextToClick on:clickText={storeChordOutput3} label="save" />
         {/if}
         {#if displayingChordOutput3}
             <TextToClick

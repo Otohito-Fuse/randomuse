@@ -37,9 +37,9 @@
     <div class="h2-wrapper">
         <h2>Rhythm Output 1</h2>
         {#if $rhythmOutput1Exists}
-            <TextToClick on:clickText={storeRhythmOutput1} label="Overwrite" />
+            <TextToClick on:clickText={storeRhythmOutput1} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeRhythmOutput1} label="Save" />
+            <TextToClick on:clickText={storeRhythmOutput1} label="save" />
         {/if}
         {#if displayingRhythmOutput1}
             <TextToClick
@@ -63,9 +63,9 @@
     <div class="h2-wrapper">
         <h2>Rhythm Output 2</h2>
         {#if $rhythmOutput2Exists}
-            <TextToClick on:clickText={storeRhythmOutput2} label="Overwrite" />
+            <TextToClick on:clickText={storeRhythmOutput2} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeRhythmOutput2} label="Save" />
+            <TextToClick on:clickText={storeRhythmOutput2} label="save" />
         {/if}
         {#if displayingRhythmOutput2}
             <TextToClick
@@ -89,9 +89,9 @@
     <div class="h2-wrapper">
         <h2>Rhythm Output 3</h2>
         {#if $rhythmOutput3Exists}
-            <TextToClick on:clickText={storeRhythmOutput3} label="Overwrite" />
+            <TextToClick on:clickText={storeRhythmOutput3} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeRhythmOutput3} label="Save" />
+            <TextToClick on:clickText={storeRhythmOutput3} label="save" />
         {/if}
         {#if displayingRhythmOutput3}
             <TextToClick

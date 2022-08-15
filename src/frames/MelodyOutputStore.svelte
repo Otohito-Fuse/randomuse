@@ -90,9 +90,9 @@
     <div class="h2-wrapper">
         <h2>Melody Output 1</h2>
         {#if $melodyOutput1Exists}
-            <TextToClick on:clickText={storeMelodyOutput1} label="Overwrite" />
+            <TextToClick on:clickText={storeMelodyOutput1} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeMelodyOutput1} label="Save" />
+            <TextToClick on:clickText={storeMelodyOutput1} label="save" />
         {/if}
         {#if displayingMelodyOutput1}
             <TextToClick
@@ -120,9 +120,9 @@
     <div class="h2-wrapper">
         <h2>Melody Output 2</h2>
         {#if $melodyOutput2Exists}
-            <TextToClick on:clickText={storeMelodyOutput2} label="Overwrite" />
+            <TextToClick on:clickText={storeMelodyOutput2} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeMelodyOutput2} label="Save" />
+            <TextToClick on:clickText={storeMelodyOutput2} label="save" />
         {/if}
         {#if displayingMelodyOutput2}
             <TextToClick
@@ -150,9 +150,9 @@
     <div class="h2-wrapper">
         <h2>Melody Output 3</h2>
         {#if $melodyOutput3Exists}
-            <TextToClick on:clickText={storeMelodyOutput3} label="Overwrite" />
+            <TextToClick on:clickText={storeMelodyOutput3} label="overwrite" />
         {:else}
-            <TextToClick on:clickText={storeMelodyOutput3} label="Save" />
+            <TextToClick on:clickText={storeMelodyOutput3} label="save" />
         {/if}
         {#if displayingMelodyOutput3}
             <TextToClick
