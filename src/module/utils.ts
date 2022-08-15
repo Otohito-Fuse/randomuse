@@ -1,4 +1,4 @@
-import type { MelodyOutput } from './outputclasses';
+import { MelodyOutput } from './outputclasses';
 import type { RhythmOutput } from './outputclasses';
 
 export function noteHeightToPitchName(noteHeight: number): string {
@@ -255,4 +255,32 @@ export function lcm(n: number, m: number): number {
     let n0: number = n > 0 ? n : -n;
     let m0: number = m > 0 ? m : -m;
     return (n0 * m0) / gcd(n0, m0);
+}
+
+export function transposeMelody(
+    melodyOutput: MelodyOutput,
+    interval: number,
+): MelodyOutput {
+    let melodyOutput0 = new MelodyOutput();
+    melodyOutput0.noteHeights = melodyOutput.noteHeights.map(
+        (e) => e + interval,
+    );
+    return melodyOutput0;
+}
+
+export function reverseMelody(melodyOutput: MelodyOutput): MelodyOutput {
+    let melodyOutput0 = new MelodyOutput();
+    melodyOutput0.noteHeights = melodyOutput.noteHeights.reverse();
+    return melodyOutput0;
+}
+
+export function invertMelody(
+    melodyOutput: MelodyOutput,
+    axis: number,
+): MelodyOutput {
+    let melodyOutput0 = new MelodyOutput();
+    melodyOutput0.noteHeights = melodyOutput.noteHeights.map(
+        (e) => axis - (e - axis),
+    );
+    return melodyOutput0;
 }

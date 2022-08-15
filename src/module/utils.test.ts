@@ -10,6 +10,9 @@ import {
     lcm,
     getUnit,
     rhythmTransformation,
+    transposeMelody,
+    reverseMelody,
+    invertMelody,
 } from './utils';
 
 test('binarySearch1', () => {
@@ -240,4 +243,52 @@ test('rhythmTransformation1', () => {
         ],
     ];
     expect(rhythmTransformation(rhythmOutput)).toEqual(array2);
+});
+
+test('transposeMelody1', () => {
+    let melodyOutput1: MelodyOutput = new MelodyOutput();
+    melodyOutput1.noteHeights = [
+        72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60,
+    ];
+    let melodyOutput2: MelodyOutput = new MelodyOutput();
+    melodyOutput2.noteHeights = [
+        73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61,
+    ];
+    expect(transposeMelody(melodyOutput1, 1)).toEqual(melodyOutput2);
+});
+
+test('transposeMelody2', () => {
+    let melodyOutput1: MelodyOutput = new MelodyOutput();
+    melodyOutput1.noteHeights = [
+        72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60,
+    ];
+    let melodyOutput2: MelodyOutput = new MelodyOutput();
+    melodyOutput2.noteHeights = [
+        73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61,
+    ];
+    expect(transposeMelody(melodyOutput2, -1)).toEqual(melodyOutput1);
+});
+
+test('reverseMelody1', () => {
+    let melodyOutput1: MelodyOutput = new MelodyOutput();
+    melodyOutput1.noteHeights = [
+        72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60,
+    ];
+    let melodyOutput2: MelodyOutput = new MelodyOutput();
+    melodyOutput2.noteHeights = [
+        60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,
+    ];
+    expect(reverseMelody(melodyOutput1)).toEqual(melodyOutput2);
+});
+
+test('invertMelody1', () => {
+    let melodyOutput1: MelodyOutput = new MelodyOutput();
+    melodyOutput1.noteHeights = [
+        72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60,
+    ];
+    let melodyOutput2: MelodyOutput = new MelodyOutput();
+    melodyOutput2.noteHeights = [
+        60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,
+    ];
+    expect(invertMelody(melodyOutput1, 66)).toEqual(melodyOutput2);
 });
