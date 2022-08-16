@@ -1,5 +1,6 @@
 <script lang="ts">
     import RangeArea from './RangeArea.svelte';
+    import TextToClick from '../components/TextToClick.svelte';
 
     import { ChordInput } from '../module/inputclasses';
 
@@ -119,6 +120,74 @@
     let numOfChords: number = 16;
 
     $: chordInput.numOfChords = numOfChords;
+
+    function evenRoot() {
+        pC = 100;
+        pCis = 100;
+        pD = 100;
+        pEs = 100;
+        pE = 100;
+        pF = 100;
+        pFis = 100;
+        pG = 100;
+        pGis = 100;
+        pA = 100;
+        pB = 100;
+        pH = 100;
+    }
+
+    function evenSuffix() {
+        pM = 100;
+        pm = 100;
+        p7 = 100;
+        pM7 = 100;
+        pm7 = 100;
+        pm7b5 = 100;
+        pdim = 100;
+        paug = 100;
+        p7sus4 = 100;
+        pIon = 100;
+        pDor = 100;
+        pPhr = 100;
+        pLyd = 100;
+        pMixo = 100;
+        pAeo = 100;
+        pLoc = 100;
+    }
+
+    function randomRoot() {
+        pC = Math.floor(Math.random() * 101);
+        pCis = Math.floor(Math.random() * 101);
+        pD = Math.floor(Math.random() * 101);
+        pEs = Math.floor(Math.random() * 101);
+        pE = Math.floor(Math.random() * 101);
+        pF = Math.floor(Math.random() * 101);
+        pFis = Math.floor(Math.random() * 101);
+        pG = Math.floor(Math.random() * 101);
+        pGis = Math.floor(Math.random() * 101);
+        pA = Math.floor(Math.random() * 101);
+        pB = Math.floor(Math.random() * 101);
+        pH = Math.floor(Math.random() * 101);
+    }
+
+    function randomSuffix() {
+        pM = Math.floor(Math.random() * 101);
+        pm = Math.floor(Math.random() * 101);
+        p7 = Math.floor(Math.random() * 101);
+        pM7 = Math.floor(Math.random() * 101);
+        pm7 = Math.floor(Math.random() * 101);
+        pm7b5 = Math.floor(Math.random() * 101);
+        pdim = Math.floor(Math.random() * 101);
+        paug = Math.floor(Math.random() * 101);
+        p7sus4 = Math.floor(Math.random() * 101);
+        pIon = Math.floor(Math.random() * 101);
+        pDor = Math.floor(Math.random() * 101);
+        pPhr = Math.floor(Math.random() * 101);
+        pLyd = Math.floor(Math.random() * 101);
+        pMixo = Math.floor(Math.random() * 101);
+        pAeo = Math.floor(Math.random() * 101);
+        pLoc = Math.floor(Math.random() * 101);
+    }
 </script>
 
 <div class="main-area">
@@ -139,6 +208,8 @@
     </div>
     <div class="h3-wrapper">
         <h3>Root</h3>
+        <TextToClick on:clickText={evenRoot} label="even" />
+        <TextToClick on:clickText={randomRoot} label="random" />
     </div>
     <div class="range-wrapper">
         <RangeArea
@@ -250,6 +321,8 @@
     </div>
     <div class="h3-wrapper">
         <h3>Suffix</h3>
+        <TextToClick on:clickText={evenSuffix} label="even" />
+        <TextToClick on:clickText={randomSuffix} label="random" />
     </div>
     <div class="range-wrapper">
         <RangeArea
@@ -413,10 +486,16 @@
 
     .h3-wrapper {
         width: 100%;
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
         padding-top: 6px;
         padding-left: 25px;
         padding-bottom: 10px;
+    }
+
+    .h3-wrapper h3 {
+        padding-right: 10px;
+        padding-top: 5px;
     }
 
     .range-wrapper {

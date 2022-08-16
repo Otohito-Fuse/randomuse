@@ -1,5 +1,6 @@
 <script lang="ts">
     import RangeArea from './RangeArea.svelte';
+    import TextToClick from '../components/TextToClick.svelte';
 
     import { MelodyInput } from '../module/inputclasses';
     import { noteHeightToPitchName } from '../module/utils';
@@ -57,6 +58,36 @@
     $: labelA = ((pA * 100) / pRootSum).toFixed(1) + '%';
     $: labelB = ((pB * 100) / pRootSum).toFixed(1) + '%';
     $: labelH = ((pH * 100) / pRootSum).toFixed(1) + '%';
+
+    function even() {
+        pC = 100;
+        pCis = 100;
+        pD = 100;
+        pEs = 100;
+        pE = 100;
+        pF = 100;
+        pFis = 100;
+        pG = 100;
+        pGis = 100;
+        pA = 100;
+        pB = 100;
+        pH = 100;
+    }
+
+    function random() {
+        pC = Math.floor(Math.random() * 101);
+        pCis = Math.floor(Math.random() * 101);
+        pD = Math.floor(Math.random() * 101);
+        pEs = Math.floor(Math.random() * 101);
+        pE = Math.floor(Math.random() * 101);
+        pF = Math.floor(Math.random() * 101);
+        pFis = Math.floor(Math.random() * 101);
+        pG = Math.floor(Math.random() * 101);
+        pGis = Math.floor(Math.random() * 101);
+        pA = Math.floor(Math.random() * 101);
+        pB = Math.floor(Math.random() * 101);
+        pH = Math.floor(Math.random() * 101);
+    }
 </script>
 
 <div class="main-area">
@@ -98,6 +129,8 @@
     </div>
     <div class="h3-wrapper">
         <h3>Pitch</h3>
+        <TextToClick on:clickText={even} label="even" />
+        <TextToClick on:clickText={random} label="random" />
     </div>
     <div class="range-wrapper">
         <RangeArea
@@ -225,10 +258,16 @@
 
     .h3-wrapper {
         width: 100%;
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
         padding-top: 6px;
         padding-left: 25px;
         padding-bottom: 10px;
+    }
+
+    .h3-wrapper h3 {
+        padding-right: 10px;
+        padding-top: 5px;
     }
 
     .range-wrapper {
