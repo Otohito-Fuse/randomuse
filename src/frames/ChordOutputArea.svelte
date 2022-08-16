@@ -38,16 +38,16 @@
         justify-content: center;
         display: flex;
         flex-wrap: wrap;
-        gap: 15px 5%;
+        gap: 15px 0;
         padding-left: 5%;
         padding-right: 5%;
     }
 
     .each-chord-block {
-        width: 20%;
+        width: 25%;
         padding-top: 3px;
         padding-bottom: 3px;
-        padding-left: 2%;
+        padding-left: 5%;
     }
 
     .root {
